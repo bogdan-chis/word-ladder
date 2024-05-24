@@ -1,0 +1,140 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <queue>
+
+
+using std:: vector;
+using std:: map;
+using std:: queue;
+using std:: priority_queue;
+using std:: pair;
+
+template <typename T>
+class Graph
+{
+private:
+	map <T, vector<pair<int, T>>> inbounds;
+	int n;
+public:
+	Graph(const map < T, vector<pair<int, T>>>& _inbounds = { }) : inbounds{ _inbounds }, n{ 0 } {};
+	
+	const map<T, vector<pair<int, T>>> getInbounds(){ return inbounds; };
+	inline void setInbounds(map<T, vector<pair<int, T>>> _inbounds) { inbounds = _inbounds; };
+
+	bool isEdge(T inNode, T outNode) const
+	{
+		if (inNode == outNode)
+			return true;
+
+		bool firstEdge = false;
+		bool secondEdge = false;
+
+		for (auto itMap = inbounds.begin(); itMap != inbounds.end() && (!firstEdge || !secondEdge); ++ itMap)
+		{
+			if (itMap->first == inNode)
+			{
+				// Checking if we have an edge inNode -> outNode
+				const vector<T>& neighbours = itMap->second;
+				for (auto itVec = neighbours.begin(); itVec != neighbours.end(); ++ itVec)
+				{
+					if ((*itVec).second == outNode)
+					{
+						//std::cout << "There is an edge between " << inNode << " and " << outNode << '\n';
+						firstEdge = true;
+					}
+				}
+			}
+
+			if (itMap->first == outNode)
+			{
+				// Checking if we have an edge outNode -> inNode
+				const vector<T>& neighbours = itMap->second;
+				for (auto itVec = neighbours.begin(); itVec != neighbours.end(); ++itVec)
+				{
+					if ((*itVec).second == inNode)
+					{
+						//std::cout << "There is an edge between " << outNode << " and " << inNode << '\n';
+						secondEdge = true;
+					}
+				}
+			}
+		}
+		return firstEdge && secondEdge;
+	}
+
+	void addEdge(T inNode, T outNode)
+	{
+		if (!isEdge(inNode, outNode))
+		{
+			inbounds[inNode].push_back(pair(++ n, outNode));
+			inbounds[outNode].push_back(pair(++ n,inNode));
+		}
+		else
+		{
+			std::cout << "There is already an edge between " << inNode << " and " << outNode << '\n';
+		}
+	}
+
+	void view() const
+	{
+		if (n == 0)
+			std::cout << "The graph is empty\n";
+		else {
+			std::cout << "The graph has " << n << " edges:\n";
+			for (auto itMap = inbounds.begin(); itMap != inbounds.end(); ++itMap) {
+				const vector< pair<int, T>>& neighbours = itMap->second;
+				for (auto itVec = neighbours.begin(); itVec != neighbours.end(); ++itVec) {
+					std::cout << "There is an edge between " << itMap->first << " and " << (*itVec).second << " with ID = " << (*itVec).first << '\n';
+				}
+				std::cout << "-------------------------\n";
+			}
+		}
+	}
+
+	/*void BFS(T source, T terminal) const
+	{
+		queue<T> q;
+		q.push(source);
+		bool found = false;
+
+		bool* visited = new bool[n];
+		visited = { false };
+		while (!q.empty() && !found)
+		{
+			T currentNode = q.pop();
+			for (auto neighbour : inbounds[currentNode])
+			{
+
+			}
+		}
+	}*/
+
+	/*int UCS(const T source, const T terminal) const
+	{
+		priority_queue<pair<int, T>> pq;
+		pq.push(std::make_pair(0, source);
+		bool found = false;
+
+		while (!pq.empty() && !found)
+		{
+			T currentNode = pq.pop()->second;
+			for (auto neightbour : inbounds[currentNode])
+			{
+
+			}
+		}
+		return 0;
+	}*/
+
+
+
+	//friend std::ostream& operator<<(std::ostream& os, const Graph<T>& g);
+};
+
+//template<typename T>
+//std::ostream& operator<< (std::ostream& os, const Graph<T>& g)
+//{
+//	g.view();
+//	return os;
+//}

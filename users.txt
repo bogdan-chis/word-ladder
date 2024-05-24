@@ -1,0 +1,24 @@
+Wed May  8 17:43:59 2024
+	Bogdan's Game Data
+
+Start word: { ara }
+End word: { pep }
+Hints used: 0
+Words used: ara -> ara -> are -> pre -> pee -> pep
+
+	Bogdan did a total number of 6 moves
+	The optimal number of moves was 5 moves
+
+------------------------------------------------------------------------
+Wed May  8 17:45:59 2024
+	Bogdan's Game Data
+
+Start word: { ara }
+End word: { pep }
+Hints used: 0
+Words used: ara -> are -> pre -> pee -> pee -> pep
+
+	Bogdan did a total number of 6 moves
+	The optimal number of moves was 5 moves
+
+------------------------------------------------------------------------

@@ -1,0 +1,9 @@
+	Bogdan's Game DataStart word:{ ara }
+End word:{ ara }
+Hints used: 0
+Words used: ara -> are -> pre -> pee -> pep
+
+	You did a total number of 5 moves
+	The optimal number of moves was 5 moves
+
+------------------------------------------------------------------------

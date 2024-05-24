@@ -1,0 +1,39 @@
+Wed May  8 20:25:39 2024
+Wed May  8 20:25:40 2024
+	Osas's Game Data
+
+Start word: { s }
+End word: { z }
+Hints used: 0
+Words used: s -> z
+
+	Osas did a total number of 1 moves
+	The optimal number of moves was 1 moves
+
+------------------------------------------------------------------------
+Wed May  8 20:27:11 2024
+Wed May  8 20:27:14 2024
+	Osas's Game Data
+
+Start word: { s }
+End word: { z }
+Hints used: 0
+Words used: s -> z
+
+	Osas did a total number of 1 moves
+	The optimal number of moves was 1 moves
+
+------------------------------------------------------------------------
+Wed May  8 20:45:22 2024
+Wed May  8 20:45:26 2024
+	Osas's Game Data
+
+Start word: { s }
+End word: { z }
+Hints used: 0
+Words used: s -> d -> g -> z
+
+	Osas did a total number of 3 moves
+	The optimal number of moves was 1 moves
+
+------------------------------------------------------------------------
